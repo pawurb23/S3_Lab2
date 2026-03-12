@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Dane/Dane.csproj" />
+  <Project Path="WpfAplikacja/WpfAplikacja.csproj" />
+</Solution>
