@@ -1,23 +1,55 @@
 ﻿<Window x:Class="WpfAplikacja.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfAplikacja"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <ListBox x:Name="ListCoś" d:ItemsSource="{d:SampleData ItemCount=5}" RenderTransformOrigin="0.5,0.5" Margin="54,54,530,97">
-            <ListBox.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.338"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </ListBox.RenderTransform>
-        </ListBox>
-        <Button x:Name="BtnPobierz" Content="Pobierz" HorizontalAlignment="Left" Margin="485,135,0,0" VerticalAlignment="Top" Height="47" Width="116" Click="BtnPobierz_Click"/>
+        Title="Rejestr Wyników Pływackich" Height="450" Width="700">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
+        <StackPanel Grid.Column="0" Margin="0,0,15,0">
+            <TextBlock Text="Dodaj nowy wynik:" FontWeight="Bold" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Nazwisko:"/>
+            <TextBox x:Name="txtNazwisko" Margin="0,0,0,5"/>
+
+            <TextBlock Text="Dystans (50, 100, 200):"/>
+            <TextBox x:Name="txtDystans" Margin="0,0,0,5"/>
+
+            <TextBlock Text="Czas (s):"/>
+            <TextBox x:Name="txtCzas" Margin="0,0,0,5"/>
+
+            <TextBlock Text="Nagroda (zł):"/>
+            <TextBox x:Name="txtNagroda" Margin="0,0,0,5"/>
+
+            <TextBlock Text="Klub (opcjonalnie):"/>
+            <TextBox x:Name="txtKlub" Margin="0,0,0,10"/>
+
+            <CheckBox x:Name="chkRekord" Content="Rekord życiowy/zawodów" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Styl pływania:"/>
+            <RadioButton x:Name="rbDowolny" Content="Dowolny" IsChecked="True"/>
+            <RadioButton x:Name="rbGrzbietowy" Content="Grzbietowy"/>
+            <RadioButton x:Name="rbKlasyczny" Content="Klasyczny"/>
+            <RadioButton x:Name="rbMotylkowy" Content="Motylkowy"/>
+            <RadioButton x:Name="rbZmienny" Content="Zmienny" Margin="0,0,0,15"/>
+
+            <Button x:Name="BtnDodaj" Content="Dodaj Wynik" Click="BtnDodaj_Click" Padding="5"/>
+        </StackPanel>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <ListBox x:Name="ListCoś" Grid.Row="0" Margin="0,0,0,10"/>
+
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="BtnPobierz" Content="Pobierz Dane" Click="BtnPobierz_Click" Width="120" Margin="0,0,10,0" Padding="5"/>
+                <Button x:Name="BtnUsun" Content="Usuń Zaznaczone" Click="BtnUsun_Click" Width="120" Padding="5"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

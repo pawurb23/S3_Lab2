@@ -106,8 +106,8 @@
 
         public override string ToString()
         {
-            string przynaleznosc = Klub != null ? $" ({Klub})" : " (Niezrzeszony)";
-            return $"{Nazwisko}{przynaleznosc}";
+            string przynaleznosc = string.IsNullOrWhiteSpace(Klub) ? "Niezrzeszony" : Klub;
+            return $"{Id}. {Nazwisko} ({przynaleznosc}) - {Dystans}m, Czas: {Czas}s [{StylPływania}]";
         }
 
         public static Wynik[] wartościPoczątkowe = new Wynik[]
