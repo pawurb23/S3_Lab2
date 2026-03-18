@@ -24,7 +24,7 @@ namespace WpfAplikacja
 
         private void BtnPobierz_Click(object sender, RoutedEventArgs e)
         {
-            Wynik w = new Wynik() { Nazwisko = "Phelps" };
+            Wynik w = new Wynik() { Nazwisko = "Sieradzki", Klub = "AZS AWF Katwoice" };
             ListCoś.Items.Add(w);
         }
     }
